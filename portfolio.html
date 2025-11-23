@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background: #f4f1f1;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1862e5;
+      padding: 20px 0;
+      color: #fff;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+    }
+    main {
+      width: 100%;
+      background: #fff;
+      margin: 40px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 40px 20px;
+      box-sizing: border-box;
+      max-width: 1000px;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+    .hero .profile-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #d4e0f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .hero .profile-img img {
+      width: 160px;
+      border-radius: 50%;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    .hero-text h1 {
+      font-size: 38px;
+      margin-bottom: 0;
+      color: #333;
+    }
+    .hero-text h2 {
+      font-size: 36px;
+      margin: 0;
+      color: lime;
+      animation-name: h2-animate;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes h2-animate {
+      0%   { color: lime; }
+      25%  { color: pink; }
+      50%  { color: red; }
+      75%  { color: orange; }
+      100% { color: lime; }
+    }
+    .hero-text p {
+      font-size: 16px;
+      color: #555;
+      margin-top: 5px;
+    }
+    h3 {
+      color: #1862e5;
+      margin-top: 40px;
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+    .about {
+      color: #222;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .skills-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .skill-card {
+      background: #1862e5;
+      color: #fff;
+      padding: 18px 0;
+      flex: 1;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 17px;
+      box-shadow: 0 2px 8px rgba(24,98,229,0.08);
+      min-width: 120px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .skill-card:hover {
+      box-shadow: 0 4px 12px rgba(24,98,229,0.95);
+      transform: translateY(-4px);
+    }
+    .skill-card span {
+      display: block;
+      font-size: 14px;
+      color: #d2e7ff;
+      margin-top: 6px;
+    }
+    .projects {
+      margin-bottom: 32px;
+    }
+    .project-card {
+      background: #f7f9fc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(24,98,229,0.08);
+      padding: 22px;
+      margin-bottom: 22px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(24,98,229,0.15);
+      transform: translateY(-2px);
+    }
+    .project-title {
+      font-weight: bold;
+      color: #1862e5;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+    .img-hoverable {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .img-hoverable img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .img-hoverable .hover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .img-hoverable:hover .hover-img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .img-hoverable:hover .normal-img {
+      opacity: 0;
+    }
+    .contact-form {
+      background: #f7f9fc;
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 340px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 2px 6px rgba(24,98,229,0.06);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 9px;
+      margin: 7px 0 16px 0;
+      border: 1px solid #b3cef6;
+      border-radius: 4px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+    .contact-form button {
+      background: #1862e5;
+      color: #fff;
+      border: none;
+      padding: 9px 0;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+    footer {
+      background: #1862e5;
+      color: #fff;
+      text-align: center;
+      padding: 18px 0 32px 0;
+      font-size: 16px;
+      position: relative;
+    }
+    .to-top {
+      position: absolute;
+      right: 25px;
+      bottom: 23px;
+      background: #1862e5;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 7px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(24,98,229,0.09);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .navbar nav {
+        margin-top: 10px;
+      }
+      .navbar a {
+        margin: 8px;
+        font-size: 14px;
+      }
+      .hero {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 20px;
+        padding: 0 20px;
+      }
+      .hero .profile-img {
+        width: 130px;
+        height: 130px;
+      }
+      .hero .profile-img img {
+        width: 120px;
+      }
+      .hero-text h1 {
+        font-size: 30px;
+      }
+      .hero-text h2 {
+        font-size: 28px;
+      }
+      .hero-text p {
+        font-size: 14px;
+      }
+      .skills-row {
+        flex-direction: column;
+      }
+      .contact-form {
+        width: auto;
+        margin: 0 20px 40px;
+        padding: 20px;
+      }
+    }
+    @media (min-width: 1024px) {
+      main {
+        padding: 60px 20px;
+      }
+      .profile-img {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <span style="font-weight:bold; font-size:22px;">My Portfolio</span>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Hi, I am</h1>
+        <h2>Full Stack Developer</h2>
+        <p>Building modern web applications with MERN stack</p>
+      </div>
+      <div class="profile-img">
+        <img src="PHOTO.jpg" alt="Profile">
+      </div>
+    </div>
+
+    <h3 id="about">About Me</h3>
+    <p class="about">
+      Hello! My name is Nitin Kumar and I am currently learning web development. This is what this website is about: I showcase my passion for technology through various projects and topics. I am a full-stack developer in training with knowledge of HTML, CSS, and JavaScript, and I am interested in increasing my skills in backend and frontend programming. I enjoy collaborating and sharing innovative ideas to solve problems efficiently. With a hardworking and collaborative attitude, I am determined to grow as a developer and contribute positively to projects and teams.
+    </p>
+
+    <h3 id="skills">My Skills</h3>
+    <div class="skills-row">
+      <div class="skill-card">
+        HTML
+        <span>Beginner</span>
+      </div>
+      <div class="skill-card">
+        CSS
+        <span>Beginner</span>
+      </div>
+      <div class="skill-card">
+        JavaScript
+        <span>Learning</span>
+      </div>
+    </div>
+
+    <h3 id="projects">My Projects</h3>
+    <div class="projects">
+      <div class="project-card">
+        <div class="project-title">Project 1</div>
+        <div class="img-hoverable">
+          <img class="normal-img" src="https://www.blog.duomly.com/wp-content/uploads/2020/05/gym-layout.jpg" alt="Project 1 image 1">
+          <img class="hover-img"  src="https://raw.githubusercontent.com/suraj122/AC-STYLE-images/master/html-css-projects/training-studio.png" alt="Project 1 image 2">
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Project 2</div>
+        <div class="img-hoverable">
+          <img class="normal-img" src="https://rohitlakhotia.com/content/images/2021/07/stackoverflow-withCSS.png" alt="Project 2 image 1">
+          <img class="hover-img"  src="https://codesandbox.io/api/v1/sandboxes/clgyjz/screenshot.png" alt="Project 2 image 2">
+        </div>
+      </div>
+    </div>
+
+    <h3 id="contact">Contact Me</h3>
+    <form class="contact-form" id="contact">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <textarea name="message" rows="3" placeholder="Write your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <footer>
+    © 2025 Nitin Kumar. All rights reserved.
+    <button class="to-top" onclick="window.scrollTo({top: 0, behavior:'smooth'});">Back to Top</button>
+  </footer>
+</body>
+</html>
